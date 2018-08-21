@@ -1,0 +1,27 @@
+<!-- Not using, since no servlet here & no starting url mapped -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+
+  <display-name>Archetype Created Web Application</display-name>
+  
+   <!-- 
+  ContextLoaderListener creates root application context.
+  DispatcherServlet entries create one child application context per servlet entry.
+  Child contexts can access beans defined in root context.
+  Beans in root context cannot access beans in child contexts (directly).
+  All contexts are added to ServletContext.
+   -->
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/spring-servlet.xml</param-value>   <!-- file name can be applicationContext.xml --> 
+  </context-param>
+  
+  <listener>
+   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> <!-- ContextLoaderListener bind lifecycle of ApplicationContext and ServletContext together & automate the creation of the ApplicationContext, so you don't have to write explicit code to do create it - it's a convenience function. -->
+  </listener>
+   
+</web-app>
