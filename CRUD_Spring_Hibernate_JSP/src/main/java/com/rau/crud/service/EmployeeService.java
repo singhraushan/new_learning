@@ -9,5 +9,7 @@ public interface EmployeeService {
 	public void addEmployee(EmployeeDto employeeDto);
 	public void updateEmployee(EmployeeDto employeeDto);
 	public List<EmployeeDto> getEmployeeList();
+	public EmployeeDto getEmployeeById(int id);
+	public void deleteEmployeeById(int id);
 
 }

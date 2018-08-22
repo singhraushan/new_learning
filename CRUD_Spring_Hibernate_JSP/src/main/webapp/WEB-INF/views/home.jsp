@@ -30,9 +30,9 @@
                     <td>${employee.email}</td>
                     <td>${employee.address}</td>
                     <td>${employee.telephone}</td>
-                    <td>
-                        <a href="editEmployee?id=${employee.id}">Edit</a>
-                        <ahref="deleteEmployee?id=${employee.id}">Delete</a>
+                    <td><!-- Two different way to pass id to service  -->
+                        <a href="<c:url value='/editEmployee/${employee.id}' />" >Edit</a>
+                        <a href="deleteEmployee?id=${employee.id}">Delete</a>
                     </td>
                 </tr>
                  <%-- </c:if>  --%>

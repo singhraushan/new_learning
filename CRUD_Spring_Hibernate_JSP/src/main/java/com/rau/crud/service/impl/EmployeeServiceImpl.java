@@ -41,23 +41,75 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 	@Override
 	public void addEmployee(EmployeeDto employeeDto) {
-		List<EmployeeDto> employeeDtoList = new ArrayList<EmployeeDto>();
-		employeeDtoList.add(employeeDto);
-		employeeDao.addEmployee(toEntity(employeeDtoList).get(0));
+		employeeDao.addEmployee(toEntity(employeeDto));
 
 	}
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 	@Override
 	public void updateEmployee(EmployeeDto employeeDto) {
-		List<EmployeeDto> employeeDtoList = new ArrayList<EmployeeDto>();
-		employeeDtoList.add(employeeDto);
-		employeeDao.updateEmployee(toEntity(employeeDtoList).get(0));
+		employeeDao.updateEmployee(toEntity(employeeDto));
 	}
 
 	@Override
 	public List<EmployeeDto> getEmployeeList() {
 		return toDto(employeeDao.getEmployeeList());
+	}
+	
+	@Override
+	public EmployeeDto getEmployeeById(int id) {
+		return toDto(employeeDao.getEmployeeById(id));
+	}
+    
+	@Transactional
+	@Override
+	public void deleteEmployeeById(int id) {
+		employeeDao.deleteEmployeeById(id);
+	}
+
+	private Employee toEntity(EmployeeDto employeeDto) {
+		Employee employee = null;
+				if (employeeDto != null) {
+					employee = new Employee();
+					employee.setId(employeeDto.getId());
+					employee.setName(employeeDto.getName());
+					employee.setEmail(employeeDto.getEmail());
+					employee.setTelephone(employeeDto.getTelephone());
+					employee.setAddress(employeeDto.getAddress());
+				}
+		return employee;
+	}
+	
+	private EmployeeDto toDto(Employee employee) {
+		EmployeeDto employeeDto = null;
+				if (employee != null) {
+					employeeDto = new EmployeeDto();
+					employeeDto.setId(employee.getId());
+					employeeDto.setName(employee.getName());
+					employeeDto.setEmail(employee.getEmail());
+					employeeDto.setTelephone(employee.getTelephone());
+					employeeDto.setAddress(employee.getAddress());
+				}
+		return employeeDto;
+	}
+	
+	private List<Employee> toEntity(List<EmployeeDto> employeeDtoList) {
+		List<Employee> employeeList = null;
+		if (employeeDtoList != null && !employeeDtoList.isEmpty()) {
+			employeeList = new ArrayList<Employee>();
+			for (EmployeeDto employeeDto : employeeDtoList) {
+				if (employeeDto != null) {
+					Employee employee = new Employee();
+					employee.setId(employeeDto.getId());
+					employee.setName(employeeDto.getName());
+					employee.setEmail(employeeDto.getEmail());
+					employee.setTelephone(employeeDto.getTelephone());
+					employee.setAddress(employeeDto.getAddress());
+					employeeList.add(employee);
+				}
+			}
+		}
+		return employeeList;
 	}
 
 	private List<EmployeeDto> toDto(List<Employee> employeeList) {
@@ -78,25 +130,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 			}
 		}
 		return employeeDtoList;
-	}
-
-	private List<Employee> toEntity(List<EmployeeDto> employeeDtoList) {
-		List<Employee> employeeList = null;
-		if (employeeDtoList != null && !employeeDtoList.isEmpty()) {
-			employeeList = new ArrayList<Employee>();
-			for (EmployeeDto employeeDto : employeeDtoList) {
-				if (employeeDto != null) {
-					Employee employee = new Employee();
-					employee.setId(employeeDto.getId());
-					employee.setName(employeeDto.getName());
-					employee.setEmail(employeeDto.getEmail());
-					employee.setTelephone(employeeDto.getTelephone());
-					employee.setAddress(employeeDto.getAddress());
-					employeeList.add(employee);
-				}
-			}
-		}
-		return employeeList;
 	}
 
 }

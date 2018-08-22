@@ -37,4 +37,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return sessionFactory.getCurrentSession().createQuery("from Employee").list();
 	}
 
+	@Override
+	public Employee getEmployeeById(int id) {
+		return (Employee)sessionFactory.getCurrentSession().getNamedQuery("HQL_GET_EMPLOYEE_BY_ID").setInteger("id", id).getResultList().get(0);
+	}
+
+	@Override
+	public void deleteEmployeeById(int id) {
+		Employee emp = sessionFactory.getCurrentSession().load(Employee.class, id);
+		if(null!=emp){
+			sessionFactory.getCurrentSession().delete(emp);
+		}
+	}
+
 }
