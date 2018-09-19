@@ -3,8 +3,8 @@ package com.rau.common;
 public class ArmstrongNumber {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-             System.out.println(isArmstrongNumber(370));
+             System.out.println(isArmstrongNumber(310));
+             nNumbereOfArmstrongNumber(15);
 	}
 	
 	//sum of its own digits each raised to the power of the number of digit ex: 153= 1^3+5^3+3^3; ,370= 3^3+7^3; if two digit input number then power on each number would be 2.
@@ -32,6 +32,28 @@ public class ArmstrongNumber {
 	  		return true;
 	  	else
 	  		return false;
+    }
+    public static void nNumbereOfArmstrongNumber(int n) {
+    	int count =0;
+    	for(int originalNumber=1; count <=n; originalNumber++) {
+    		int power = findLength(originalNumber);
+    		int sum = 0,number=originalNumber;
+    		while(number!=0) {
+    			int digit = number%10;
+    			int tem=1;
+    			for(int mul=0;mul<power;mul++) {
+    				tem= tem*digit;
+    			}
+    			sum+=tem;
+    			number=number/10;
+    		}
+    		if(sum==originalNumber) {
+    			count++;
+    			System.out.print("ArmstrongNumber: "+originalNumber+" ");
+    			if(count==n)
+    				break;
+    		}
+    	}
     }
     
     private static int findLength(long input) {
