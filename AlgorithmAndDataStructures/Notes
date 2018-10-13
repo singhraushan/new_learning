@@ -1,0 +1,9 @@
+Eight types of sorting:
+1.Bubble: until last element fixed, it'll compare i.e. max value. n-1 comparison take place.
+2.Selection: until 1t element fixed, it'll compare i.e. min value. n-1 comparison take place.
+3.Insertion:
+4.Quick
+5.Merge
+6.Heap
+7.Radix/Bucket
+8.Shell
