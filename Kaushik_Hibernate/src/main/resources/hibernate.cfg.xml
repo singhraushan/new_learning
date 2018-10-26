@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!--connections properties -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/hibernatekaushikdb</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">admin</property>
+
+		<!-- hibernate properties -->
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- dialect cfg -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- mapping files -->
+		<mapping class="com.rau.hibernate.model.UserDetails" />
+		<mapping class="com.rau.hibernate.model.SavingColletionDemoUserDetails" />
+		<mapping class="com.rau.hibernate.model.ProxyDemoUserDetails" /> 
+		<mapping class="com.rau.hibernate.model.Person" />
+		<mapping class="com.rau.hibernate.model.Vehicle" />
+		<mapping class="com.rau.hibernate.model.OneToManyDemoPerson" />
+		<mapping class="com.rau.hibernate.model.ManyToOneDemoVehicle" />   
+		<mapping class="com.rau.hibernate.model.ManyToManyDemoPerson" />
+		<mapping class="com.rau.hibernate.model.ManyToManyDemoVehicle" />
+		<mapping class="com.rau.hibernate.model.CascadePerson" />
+		<mapping class="com.rau.hibernate.model.CasCadeVehicle" /> 
+		<mapping class="com.rau.hibernate.model.Animal" />
+		<mapping class="com.rau.hibernate.model.FourLegsAnimal" />
+		<mapping class="com.rau.hibernate.model.TwoLegsAnimal" /> 
+		<mapping class="com.rau.hibernate.model.CRUDPerson" /> 
+		<mapping class="com.rau.hibernate.model.PersonStates" />
+		
+		
+	</session-factory>
+</hibernate-configuration>
