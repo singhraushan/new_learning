@@ -54,7 +54,55 @@ public class BinarySearchTree {
 			}
 		}
 	}
+	/* Given a binary tree, print its nodes according to the 
+    "bottom-up" postorder traversal. */
+  void postorder(BSTNode node) 
+  { 
+      if (node == null) 
+          return; 
 
+      // first recur on left subtree 
+      postorder(node.left); 
+
+      // then recur on right subtree 
+      postorder(node.right); 
+
+      // now deal with the node 
+      System.out.print(node.value + " "); 
+  } 
+
+  /* Given a binary tree, print its nodes in inorder*/
+  void inorder(BSTNode node) 
+  { 
+      if (node == null) 
+          return; 
+
+      /* first recur on left child */
+      inorder(node.left); 
+
+      /* then print the data of node */
+      System.out.print(node.value + " "); 
+
+      /* now recur on right child */
+      inorder(node.right); 
+  } 
+
+  /* Given a binary tree, print its nodes in preorder*/
+  void preorder(BSTNode node) 
+  { 
+      if (node == null) 
+          return; 
+
+      /* first print data of node */
+      System.out.print(node.value + " "); 
+
+      /* then recur on left sutree */
+      preorder(node.left); 
+
+      /* now recur on right subtree */
+      preorder(node.right); 
+  } 
+  
 	public static void main(String[] args) {
 		BinarySearchTree bstree = new BinarySearchTree();
 		// bstree.insert(10);
@@ -63,8 +111,20 @@ public class BinarySearchTree {
 		bstree.add(10);
 		bstree.add(5);
 		bstree.add(30);
-
+		bstree.test(1, 2);
+		int a1=1,a2=2;
+		bstree.test(a1, a2);
 	}
+	
+	 void test(int a1,int a2) 
+	  { 
+		 System.out.println("primitive");
+	  } 
+
+	 void test(Integer a1,Integer a2) 
+	  { 
+		 System.out.println("Non-primitive");
+	  } 
 }
 
 class BSTNode {
