@@ -1,0 +1,3 @@
+name, department, designation, salary, joining date
+abc, d1, Developer, 120.1, 1990-03-15
+abc, d2, Team Lead, 120.2, 1990-03-14
