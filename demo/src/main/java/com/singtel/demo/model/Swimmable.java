@@ -1,4 +1,4 @@
-package com.singtel.demo.util;
+package com.singtel.demo.model;
 
 public interface Swimmable {
 

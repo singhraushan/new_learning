@@ -10,7 +10,7 @@ import com.singtel.demo.data.DummyData;
 import com.singtel.demo.model.Animal;
 import com.singtel.demo.model.Bird;
 import com.singtel.demo.model.Butterfly;
-import com.singtel.demo.util.Swimmable;
+import com.singtel.demo.model.Swimmable;
 
 @Service
 public class AnimalServiceImpl implements AnimalService {

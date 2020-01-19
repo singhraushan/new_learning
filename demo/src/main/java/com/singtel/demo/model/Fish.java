@@ -1,7 +1,6 @@
 package com.singtel.demo.model;
 
 import com.singtel.demo.util.SpecializeFish.Specialize;
-import com.singtel.demo.util.Swimmable;
 
 public class Fish extends Animal implements Swimmable{
 

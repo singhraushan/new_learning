@@ -1,9 +1,8 @@
 package com.singtel.demo.model;
 
 import com.singtel.demo.util.SpecializeFish.Specialize;
-import com.singtel.demo.util.Swimmable;
 
-public class Shark extends Fish implements Swimmable {
+public class Shark extends Fish {
 
 	public Shark() {
 		super(Specialize.SHARK);
