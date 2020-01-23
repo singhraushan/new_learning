@@ -21,3 +21,6 @@ Run Application.java file
 
 swagger url to test:
 http://localhost:8080/swagger-ui.html#!/shopping-controller/
+
+create database shopping;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
