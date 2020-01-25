@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gofluent.shopping.model.Cart;
 import com.gofluent.shopping.model.Customer;
@@ -54,6 +55,7 @@ public class ShoppingServiceImpl implements ShoppingService {
 
 	
 	@Override
+	@Transactional(rollbackFor=Exception.class)
 	public Cart saveCart(Cart cart) {
 		if(cart.getCustomer().getId() == null || cart.getCustomer().getId() == 0){//new customer
 			customerRepository.saveAndFlush(cart.getCustomer());
@@ -66,11 +68,13 @@ public class ShoppingServiceImpl implements ShoppingService {
 
 	
 	@Override
+	@Transactional(noRollbackFor=Exception.class)
 	public Cart editCart(Cart cart) {
 		return saveCart(cart);
 	}
 	
 	@Override
+	@Transactional(rollbackFor=Exception.class)
 	public String removeCart(Cart cart) {
 		try{
 			cartRepository.delete(cart);// delete from cart 
