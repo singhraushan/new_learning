@@ -9,7 +9,7 @@ public class AllCombinationRecursively {
 
 	public static void main(String[] args) {
 		int[] input = new int[] { 1, 2, 3 };
-		// subSet(input, new int[input.length], 0);
+		 subSet(input, new int[input.length], 0);
 
 		subSet(input, new ArrayList<String>(), 0);
 	}
