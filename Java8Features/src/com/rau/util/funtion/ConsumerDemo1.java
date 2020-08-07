@@ -17,5 +17,14 @@ public interface ConsumerDemo1 {
 		c3.accept(new Student("Raushan",99));
 		System.out.println("Applying andThen suppy chain ny cc: ");
 		cc.accept(new Student("Raushan",99));
+	    
+		String s1= new String("abc"),s2= "abc",s3= new String("abc");
+		
+		//s1.intern()="abc"
+	    System.out.println(s1==s1.intern());
+	    System.out.println(s2==s2.intern());
+	    System.out.println(s1.intern()==s3.intern());
+	    
+	    System.out.println("hello"==("hel"+"lo"));
 	}
 }
