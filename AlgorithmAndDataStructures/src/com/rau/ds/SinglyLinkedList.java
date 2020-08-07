@@ -84,6 +84,26 @@ public class SinglyLinkedList {
 		}
 	}
 
+	public static Node midNode(Node rear) {
+		
+		if (rear == null || rear.next == null)
+			return null;
+
+		Node currNode = rear, twoStepNode = currNode.next.next;
+		
+		while (twoStepNode != null) {
+			if(twoStepNode.next==null) {//if even number size
+				twoStepNode = null;
+				//currNode = currNode; //want to show half-1th position node then don't change
+				currNode = currNode.next; // want to show half+1th position node 
+			}else{
+				currNode = currNode.next;
+			twoStepNode = twoStepNode.next.next;
+			}
+		}
+			return currNode;
+	}
+
 	public static void main(String[] args) {
 		SinglyLinkedList list = new SinglyLinkedList();
 		list.add(1);
@@ -91,7 +111,7 @@ public class SinglyLinkedList {
 		list.add(3);
 		list.add(4);
 		list.add(5);
-
+		System.out.println("midNode: "+midNode(list.rear).value);
 		list.iterate();
 		System.out.println("-------------");
 		list.reverse();
