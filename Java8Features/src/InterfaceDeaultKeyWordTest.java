@@ -4,6 +4,7 @@ public class InterfaceDeaultKeyWordTest extends Thread implements A{
   
   public static void main(String[] args) {
 	  InterfaceDeaultKeyWordTest obj = new InterfaceDeaultKeyWordTest();
+	  
 	  //obj.run();args 
 }
   
