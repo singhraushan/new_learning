@@ -9,6 +9,7 @@ public class SingleTon implements Serializable, Cloneable {
 	private static SingleTon obj;
 
 	private SingleTon() {
+		if(obj!=null) throw new Exception();
 	}
 
 	public static SingleTon getObject() {
